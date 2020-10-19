@@ -1,0 +1,53 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+}
+
+.spacer {
+  height: 40vmin;
+}
+
+.loki-logo {
+  pointer-events: none;
+}
+
+.App .left-fab {
+  left: 16px;
+  bottom: 16px;
+  position: absolute;
+}
+
+.App .right-fab {
+  right: 16px;
+  bottom: 16px;
+  position: absolute;
+}
+
+/* Dark Theme Optimization */
+
+.App.dark-theme {
+  background-color: #000000;
+  color: white;
+}
+
+/* Logo Animation */
+
+@media (prefers-reduced-motion: no-preference) {
+  .loki-logo {
+    animation: Loki-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes Loki-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
