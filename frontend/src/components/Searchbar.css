@@ -1,6 +1,7 @@
 .loki-searchbar {
+  width: 95vw;
   height: 44px;
-  width: 584px;
+  max-width: 584px;
   display: flex;
   border: 1px solid #dfe1e5;
   border-radius: 24px;
