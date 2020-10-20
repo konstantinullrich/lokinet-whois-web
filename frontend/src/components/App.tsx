@@ -9,17 +9,19 @@ import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh'
 import BrightnessLowIcon from '@material-ui/icons/BrightnessLow'
 import InfoIcon from '@material-ui/icons/Info'
 import Searchbar from './Searchbar';
-import './App.css';
+import StatusSnackbar from './StatusSnackbar';
 import UnvailableDialog from './dialogs/UnvailableDialog';
 import AvailableDialog from './dialogs/AvailableDialog';
 import InfoDialog from './dialogs/InfoDialog';
+import './App.css';
 
-type State = { 
+type State = {
   darkTheme: boolean;
   error: boolean;
   isUnavailable: boolean;
   isAvailable: boolean;
   info: boolean;
+  loading: boolean,
   query?: string,
   expirationHeight?: number;
   nameHash?: string;
@@ -29,6 +31,7 @@ type State = {
   updateHeight?: number;
   currentAddress?: string;
 }
+
 type Props = {}
 
 class App extends React.Component<Props, State> {
@@ -40,9 +43,11 @@ class App extends React.Component<Props, State> {
       darkTheme: true,
       isUnavailable: false,
       isAvailable: false,
-      info: false
+      info: false,
+      loading: false
     }
 
+    this.closeSnackbar = this.closeSnackbar.bind(this);
     this.isTyping = this.isTyping.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
@@ -52,20 +57,23 @@ class App extends React.Component<Props, State> {
 
   async submitSearch(query: string) {
     query = query.trim()
-    this.setState({ query });
+    this.setState({ query, loading: true });
     if (query.toLowerCase().endsWith(".loki")) {
-      const requestResult = await fetch(`/api/whois?q=${query}`);
+      const requestResult = await fetch(`http://34.90.221.9/api/whois?q=${query}`);
       if (requestResult.status === 200) {
         const resultData = await requestResult.json();
         this.setState( resultData);
-        this.setState({ isUnavailable: true });
+        this.setState({ isUnavailable: true, loading: false });
       } else if (requestResult.status === 404) {
-        this.setState({ isAvailable: true });
+        this.setState({ isAvailable: true, loading: false });
       }
-      
     } else {
       this.setState({ error: true });
     }
+  }
+
+  closeSnackbar() {
+    this.setState({ loading: false });
   }
 
   isTyping(value: string) {
@@ -96,7 +104,14 @@ class App extends React.Component<Props, State> {
   }
 
   render() {
-    const { darkTheme, error } = this.state;
+    const {
+      darkTheme, error,
+      info, isAvailable,
+      isUnavailable, query,
+      loading, expirationHeight,
+      nameHash, owner,
+      txId, type,
+      updateHeight, currentAddress } = this.state;
 
     const theme = createMuiTheme({
       palette: {
@@ -113,41 +128,47 @@ class App extends React.Component<Props, State> {
           </Typography>
           <Searchbar onInput={this.isTyping} onSearch={this.submitSearch} error={error} />
           <div className="spacer" />
-          <Fab 
-            className="left-fab" 
-            color="primary" 
-            size="small" 
-            aria-label="change-theme" 
+          <Fab
+            className="left-fab"
+            color="primary"
+            size="small"
+            aria-label="change-theme"
             onClick={this.toggleTheme}>
             { darkTheme ? <BrightnessHighIcon /> : <BrightnessLowIcon /> }
           </Fab>
-          <Fab 
-            className="right-fab" 
-            color="primary" 
-            size="small" 
-            aria-label="info" 
+          <Fab
+            className="right-fab"
+            color="primary"
+            size="small"
+            aria-label="info"
             onClick={this.toggleInfoDialog}>
             <InfoIcon />
           </Fab>
           <InfoDialog
-            open={this.state.info} 
+            open={info}
             onClose={this.toggleInfoDialog} />
           <AvailableDialog 
-            query={this.state.query}
-            open={this.state.isAvailable} 
+            query={query}
+            open={isAvailable}
             onClose={this.closeDialog} />
           <UnvailableDialog
-            query={this.state.query}
-            expirationHeight={this.state.expirationHeight}
-            nameHash={this.state.nameHash}
-            owner={this.state.owner}
-            txId={this.state.txId}
-            type={this.state.type}
-            updateHeight={this.state.updateHeight}
-            currentAddress={this.state.currentAddress}
-            open={this.state.isUnavailable}
+            query={query}
+            expirationHeight={expirationHeight}
+            nameHash={nameHash}
+            owner={owner}
+            txId={txId}
+            type={type}
+            updateHeight={updateHeight}
+            currentAddress={currentAddress}
+            open={isUnavailable}
             onClose={this.closeDialog}
             />
+          <StatusSnackbar
+            message='Loading...'
+            onClose={this.closeSnackbar}
+            variant='info'
+            open={loading}
+          />
         </div>
       </ThemeProvider>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     Button,
     Dialog,
     DialogActions,
@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 
 type Props = {
-    query?: string,
+    query?: string;
     open: boolean;
     onClose: () => void;
   }

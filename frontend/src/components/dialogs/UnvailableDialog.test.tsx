@@ -23,7 +23,7 @@ test('Renders Dialog', () => {
       txId={transactionId}
       type={type}
       updateHeight={updateHeight}
-      currentAddress={currentAddress} 
+      currentAddress={currentAddress}
       onClose={onClose} 
       open />
   );
@@ -67,6 +67,7 @@ test('Renders Dialog', () => {
 
 test('Calls onClose', () => {
   const onClose = jest.fn();
+
   const { getByText } = render(
     <UnvailableDialog
       query={query}
@@ -76,10 +77,11 @@ test('Calls onClose', () => {
       txId={transactionId}
       type={type}
       updateHeight={updateHeight}
-      currentAddress={currentAddress} 
+      currentAddress={currentAddress}
       onClose={onClose} 
       open />
   );
+
   const closeButtonElement = getByText(/Close/i);
   closeButtonElement.click();
 

@@ -16,7 +16,7 @@ class Searchbar extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    
+
     this.state = {
       query: ""
     };
@@ -46,15 +46,15 @@ class Searchbar extends React.Component<Props, State> {
     return (
       <form onSubmit={this.runSearch}>
         <div className={error ? "loki-searchbar error" : "loki-searchbar"}>
-            <img src={logo} className="small-loki-logo" alt="loki-logo" />
-            <input
-              data-testid="who-is-loki-search-bar"
-              type="text" 
-              placeholder="Enter a .loki Domain" 
-              name="query"
-              autoComplete="off"
-              onChange={this.textController} 
-              value={query} /> 
+          <img src={logo} className="small-loki-logo" alt="loki-logo" />
+          <input
+            data-testid="who-is-loki-search-bar"
+            type="text"
+            placeholder="Enter a .loki Domain"
+            name="query"
+            autoComplete="off"
+            onChange={this.textController}
+            value={query} />
         </div>
       </form>
     );

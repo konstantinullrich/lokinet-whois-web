@@ -6,7 +6,9 @@ const query = 'domain.loki';
 
 test('Renders Dialog', () => {
   const onClose = jest.fn();
+
   const { getByText } = render(<AvailableDialog query={query} onClose={onClose} open />);
+
   const isAvailableElement = getByText(/is available/i);
   const closeButtonElement = getByText(/Close/i);
 
@@ -17,7 +19,9 @@ test('Renders Dialog', () => {
 
 test('Calls onClose', () => {
   const onClose = jest.fn();
+
   const { getByText } = render(<AvailableDialog query={query} onClose={onClose} open />);
+
   const closeButtonElement = getByText(/Close/i);
   closeButtonElement.click();
 

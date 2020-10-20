@@ -8,8 +8,6 @@ import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.server.handler.ContextHandlerCollection
 import org.eclipse.jetty.servlet.ServletContextHandler
 import org.eclipse.jetty.servlet.ServletHolder
-
-
 import org.eclipse.jetty.webapp.WebAppContext
 
 class HelServer(private val config: HelConfig) {
@@ -54,6 +52,7 @@ class HelServer(private val config: HelConfig) {
 //
 //    }
 }
+
 fun main(args: Array<String>) {
     val helConfig = if (args.isEmpty()) HelConfig() else HelConfig.fromFile(args[0])
     val server = HelServer(helConfig)
