@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../svg/logo.svg';
-// import search from '../svg/search.svg';
 import './Searchbar.css';
 
 type State = {
@@ -48,7 +47,8 @@ class Searchbar extends React.Component<Props, State> {
       <form onSubmit={this.runSearch}>
         <div className={error ? "loki-searchbar error" : "loki-searchbar"}>
             <img src={logo} className="small-loki-logo" alt="loki-logo" />
-            <input 
+            <input
+              data-testid="who-is-loki-search-bar"
               type="text" 
               placeholder="Enter a .loki Domain" 
               name="query"

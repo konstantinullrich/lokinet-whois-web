@@ -24,66 +24,66 @@ type Props = {
 function UnvailableDialog(props: Props) {
     return (
         <Dialog fullWidth open={props.open}>
-        <DialogTitle>{props.query} is already registerd</DialogTitle>
+        <DialogTitle>{props.query} is already registered</DialogTitle>
         <DialogContent>
           <TextField 
+            id="expiration-height"
             margin="dense"
             variant="outlined"
-            id="expiration-height"
             label="Expiration Height"
             value={props.expirationHeight}
             fullWidth
             disabled
           />
           <TextField 
+            id="name-hash"
             margin="dense"
             variant="outlined"
-            id="name-hash"
             label="Name Hash"
             value={props.nameHash}
             fullWidth
             disabled
           />
           <TextField 
+            id="owner"
             margin="dense"
             variant="outlined"
-            id="owner"
             label="Owner"
             value={props.owner}
             fullWidth
             disabled
           />
           <TextField 
+            id="tx-id"
             margin="dense"
             variant="outlined"
-            id="tx-id"
             label="Transaction Id"
             value={props.txId}
             fullWidth
             disabled
           />
           <TextField 
+            id="type"
             margin="dense"
             variant="outlined"
-            id="tyoe"
             label="Type"
             value={props.type}
             fullWidth
             disabled
           />
           <TextField 
+            id="update-height"
             margin="dense"
             variant="outlined"
-            id="update-height"
             label="Update Height"
             value={props.updateHeight}
             fullWidth
             disabled
           />
           <TextField 
+            id="current-address"
             margin="dense"
             variant="outlined"
-            id="current-address"
             label="Current Address"
             value={props.currentAddress}
             fullWidth
