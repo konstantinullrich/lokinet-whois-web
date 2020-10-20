@@ -59,7 +59,7 @@ class App extends React.Component<Props, State> {
     query = query.trim()
     this.setState({ query, loading: true });
     if (query.toLowerCase().endsWith(".loki")) {
-      const requestResult = await fetch(`http://34.90.221.9/api/whois?q=${query}`);
+      const requestResult = await fetch(`/api/whois?q=${query}`);
       if (requestResult.status === 200) {
         const resultData = await requestResult.json();
         this.setState( resultData);
