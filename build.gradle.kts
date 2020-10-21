@@ -39,7 +39,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "de.konstantinullrich.whois.HelServerKt"
+    mainClassName = "loki.hel.whois.HelServerKt"
 }
 
 tasks.withType<KotlinCompile>() {
@@ -52,7 +52,7 @@ tasks.war {
 
 tasks.withType<ShadowJar> {
     manifest.attributes.apply {
-        put("Implementation-Title", "WhoIs LokiNet Server")
-        put("Main-Class", "de.konstantinullrich.whois.HelServerKt")
+        put("Implementation-Title", "Whois LokiNet Server")
+        put("Main-Class", "loki.hel.whois.HelServerKt")
     }
 }

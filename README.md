@@ -14,7 +14,7 @@ gradlew war
 
 Finally, run the following command to bundle the backend into an executable jar.
 ```commandline
-gradlew jar
+gradlew shadowjar
 ```
 
 Copy the following files onto your server `build/lib/whoisloki-<version>-all.jar`, `build/lib/whoisloki-<version>.war`
