@@ -8,8 +8,8 @@ plugins {
     id("com.github.johnrengelman.shadow") version "6.0.0"
 }
 
-group = "de.konstantinullrich"
-version = "1.0-SNAPSHOT"
+group = "loki.hel"
+version = "0.0.1"
 
 val jettyVersion = "9.4.8.v20171121"
 val slf4jVersion = "1.8.0-beta4"
@@ -21,9 +21,7 @@ val typesafeVersion = "1.4.0"
 repositories {
     mavenCentral()
     jcenter()
-    maven {
-        url = uri("https://dl.bintray.com/kotlin/kotlinx")
-    }
+    maven("https://dl.bintray.com/kotlin/kotlinx")
 }
 
 dependencies {

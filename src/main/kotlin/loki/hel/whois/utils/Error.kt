@@ -1,4 +1,4 @@
-package de.konstantinullrich.whois.utils
+package loki.hel.whois.utils
 
 enum class ErrorType(val error: String) {
     MALFORMED("MALFORMED"),

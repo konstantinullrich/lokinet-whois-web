@@ -1,4 +1,4 @@
-package de.konstantinullrich.whois.utils
+package loki.hel.whois.utils
 
 data class WhoIsResult(
     var expirationHeight: Int? = null,

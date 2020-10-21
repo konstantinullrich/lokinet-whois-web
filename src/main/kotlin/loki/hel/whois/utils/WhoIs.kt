@@ -1,4 +1,4 @@
-package de.konstantinullrich.whois.utils
+package loki.hel.whois.utils
 
 import org.apache.commons.net.whois.WhoisClient
 

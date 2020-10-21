@@ -1,8 +1,8 @@
-package de.konstantinullrich.whois
+package loki.hel.whois
 
-import de.konstantinullrich.whois.servelets.WhoIsServlet
-import de.konstantinullrich.whois.utils.HelConfig
-import de.konstantinullrich.whois.utils.WhoIs
+import loki.hel.whois.servelets.WhoIsServlet
+import loki.hel.whois.utils.HelConfig
+import loki.hel.whois.utils.WhoIs
 import org.eclipse.jetty.server.Handler
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.server.handler.ContextHandlerCollection

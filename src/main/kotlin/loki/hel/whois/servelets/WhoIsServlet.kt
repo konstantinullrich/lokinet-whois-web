@@ -1,9 +1,9 @@
-package de.konstantinullrich.whois.servelets
+package loki.hel.whois.servelets
 
 import com.google.gson.Gson
-import de.konstantinullrich.whois.utils.ErrorMessage
-import de.konstantinullrich.whois.utils.ErrorType
-import de.konstantinullrich.whois.utils.WhoIs
+import loki.hel.whois.utils.ErrorMessage
+import loki.hel.whois.utils.ErrorType
+import loki.hel.whois.utils.WhoIs
 import org.apache.http.NameValuePair
 import org.apache.http.client.utils.URLEncodedUtils
 import java.io.PrintWriter

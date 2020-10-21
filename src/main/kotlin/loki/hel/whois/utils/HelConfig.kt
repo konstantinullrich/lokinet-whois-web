@@ -1,4 +1,4 @@
-package de.konstantinullrich.whois.utils
+package loki.hel.whois.utils
 
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
