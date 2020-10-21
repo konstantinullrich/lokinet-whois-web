@@ -124,7 +124,7 @@ class App extends React.Component<Props, State> {
       <ThemeProvider theme={theme}>
         <div className={darkTheme ? "App dark-theme" : "App"}>
           <Typography variant="h1" align="center" gutterBottom>
-            Loki WhoIs
+            Loki Whois
           </Typography>
           <Searchbar onInput={this.isTyping} onSearch={this.submitSearch} error={error} />
           <div className="spacer" />

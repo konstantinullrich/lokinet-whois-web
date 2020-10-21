@@ -19,7 +19,7 @@ const lokiAddress = 'L8eYrV5mt364qm64Lp2n1hGo883m4rqLS45H111FVvqbLAGTSbfFL9RGWGv
 function InfoDialog(props: Props) {
     return (
         <Dialog fullWidth open={props.open}>
-        <DialogTitle>Loki WhoIs by Konstantin Ullrich</DialogTitle>
+        <DialogTitle>Loki Whois by Konstantin Ullrich</DialogTitle>
         <DialogContent>
             <DialogContentText>
                 Loki WhoIs runs on the JVM and React, because QuickBasic is apparently not 'professional' enough.
