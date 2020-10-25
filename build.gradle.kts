@@ -14,9 +14,9 @@ version = "0.0.1"
 val jettyVersion = "9.4.8.v20171121"
 val slf4jVersion = "1.8.0-beta4"
 val gsonVersion = "2.8.6"
-val h2Version = "1.4.200"
-val jetbrainsExposedVersion = "0.17.7"
 val typesafeVersion = "1.4.0"
+val httpComponentsVersion = "4.5"
+val commonsNetVersion = "3.7.2"
 
 repositories {
     mavenCentral()
@@ -34,8 +34,8 @@ dependencies {
     implementation("org.slf4j:slf4j-simple:$slf4jVersion")
     implementation("com.google.code.gson:gson:$gsonVersion")
     implementation("com.typesafe:config:$typesafeVersion")
-    implementation("commons-net:commons-net:3.7.2")
-    implementation("org.apache.httpcomponents:httpclient:4.5")
+    implementation("commons-net:commons-net:$commonsNetVersion")
+    implementation("org.apache.httpcomponents:httpclient:$httpComponentsVersion")
 }
 
 application {

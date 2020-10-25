@@ -46,11 +46,6 @@ class HelServer(private val config: HelConfig) {
     fun start() {
         server.start()
     }
-
-//    companion object {
-//        @JvmStatic
-//
-//    }
 }
 
 fun main(args: Array<String>) {

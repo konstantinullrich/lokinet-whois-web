@@ -32,17 +32,17 @@ class WhoIsServlet(private val whoIs: WhoIs) : HttpServlet() {
         if (request.queryString.isNullOrBlank()) {
             response.status = 400
             responseWriter.print(
-                    Gson().toJson(
-                            ErrorMessage(
-                                    error = ErrorType.MALFORMED,
-                                    message = "It seems you forget the 'q' parameter."
-                            )
+                Gson().toJson(
+                    ErrorMessage(
+                        error = ErrorType.MALFORMED,
+                        message = "It seems you forget the 'q' parameter."
                     )
+                )
             )
             return
         }
         val params: List<NameValuePair> = URLEncodedUtils.parse(
-                request.queryString, Charset.forName("UTF-8")
+            request.queryString, Charset.forName("UTF-8")
         )
         for (param in params) {
             if (param.name == "q") query = param.value
@@ -51,31 +51,31 @@ class WhoIsServlet(private val whoIs: WhoIs) : HttpServlet() {
         if (query.isBlank()) {
             response.status = 400
             responseWriter.print(
-                    Gson().toJson(
-                            ErrorMessage(
-                                    error = ErrorType.MALFORMED,
-                                    message = "You're query is to short."
-                            )
+                Gson().toJson(
+                    ErrorMessage(
+                        error = ErrorType.MALFORMED,
+                        message = "You're query is to short."
                     )
+                )
             )
             return
         }
         try {
             val result = whoIs.getWhois(query)
             responseWriter.print(
-                    Gson().toJson(
-                            result
-                    )
+                Gson().toJson(
+                    result
+                )
             )
         } catch (e: NoSuchElementException) {
             response.status = 404
             responseWriter.print(
-                    Gson().toJson(
-                            ErrorMessage(
-                                    error = ErrorType.NOT_FOUND,
-                                    message = "This LNS does not exist"
-                            )
+                Gson().toJson(
+                    ErrorMessage(
+                        error = ErrorType.NOT_FOUND,
+                        message = "This LNS does not exist"
                     )
+                )
             )
         }
 
